@@ -3,6 +3,8 @@ const bot = new Discord.Client({
     disableMentions: 'everyone'
 });
 
+bot.login("TOKEN");
+
 const YouTube = require('simple-youtube-api'),
 ytdl = require('ytdl-core');
 
