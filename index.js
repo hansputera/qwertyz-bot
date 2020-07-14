@@ -311,6 +311,8 @@ bot.on('messageReactionAdd', async (reaction, user) => {
               }).then(async channel => {
                 const dataBaru = await db({ channel: channel.id, user: user.id });
                 dataBaru.save().then(teror => {
+                 channel.send({ embed: { color: 0xcfa, description: 'Masukan ungkapan atau keluhan.\nKetik `m!close` untuk mengakhiri tiket.' }});
+
                     reaction.message.reply(`Ticket channel : <#${channel.id}>`).then(scs => scs.delete({ timeout: 5000 }));
                 })
               })
