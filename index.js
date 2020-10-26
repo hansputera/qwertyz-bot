@@ -30,7 +30,7 @@ bot.on('message', async (msg) => {
 
 
   if (command === "close") {
-      await close(message.channel);
+      await close(message, message.channel);
   }
 
 
@@ -283,7 +283,7 @@ const Schema = new mongoose.Schema({
 });
 const db = mongoose.model("ticket", Schema);
 
-async function close(chan) {
+async function close(message, chan) {
     if (chan.name.startsWith("ticket")) {
         await db.findOne({ channel: chan.id }, async (a, b) => {
             if (a) {
